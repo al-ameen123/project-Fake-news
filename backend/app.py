@@ -16,7 +16,7 @@ import time
 import streamlit as st
 import joblib
 
-from .utils import preprocess_text
+from utils import preprocess_text
 
 
 # ─── Page Configuration ─────────────────────────────────────────────────────
