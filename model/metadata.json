@@ -1,0 +1,21 @@
+{
+  "accuracy": 99.54,
+  "total_samples": 44889,
+  "train_samples": 35911,
+  "test_samples": 8978,
+  "max_features": 5000,
+  "ngram_range": [
+    1,
+    2
+  ],
+  "confusion_matrix": [
+    [
+      4666,
+      29
+    ],
+    [
+      12,
+      4271
+    ]
+  ]
+}
