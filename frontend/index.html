@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Fake News Detector — Premium UI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-background"></div>
+    
+    <div class="app-container">
+        <!-- Header / Hero Section -->
+        <header class="hero-section">
+            <h1 class="hero-title">🔍 Fake News Detector</h1>
+            <p class="hero-subtitle">Instantly analyze headlines or news articles using advanced AI classification.</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-content">
+            <!-- Left Panel: Input & Actions -->
+            <section class="card glass-card">
+                <div class="card-header">
+                    <span class="header-icon">✍️</span>
+                    <h2>Analyze News Content</h2>
+                </div>
+                <div class="input-group">
+                    <label for="news-input">Paste the article text or headline below:</label>
+                    <textarea id="news-input" placeholder="Type or paste the news content here (minimum 10 characters to analyze)..." rows="6"></textarea>
+                    <div class="char-counter"><span id="char-count">0</span> characters</div>
+                </div>
+                <div class="action-buttons">
+                    <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    <button id="analyze-btn" class="btn btn-primary" disabled>Analyze Article</button>
+                </div>
+            </section>
+
+            <!-- Right Panel: Results & Info -->
+            <section class="card glass-card result-card">
+                <div class="card-header">
+                    <span class="header-icon">📊</span>
+                    <h2>Analysis Results</h2>
+                </div>
+                
+                <!-- Initial State -->
+                <div id="result-placeholder" class="result-placeholder">
+                    <div class="pulse-icon">🔍</div>
+                    <p>Enter text on the left and click "Analyze Article" to see classification details.</p>
+                </div>
+
+                <!-- Loading State (hidden initially) -->
+                <div id="result-loading" class="result-loading hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing text integrity...</p>
+                </div>
+
+                <!-- Analysis Success State (hidden initially) -->
+                <div id="result-display" class="result-display hidden">
+                    <div id="result-badge" class="badge">REAL</div>
+                    <h3 id="result-verdict">This article appears to be REAL</h3>
+                    <p class="result-description">The machine learning classifier analyzed the vocabulary, structure, and text patterns, indicating a high probability of factual reporting.</p>
+                    
+                    <div class="meter-container">
+                        <div class="meter-label">
+                            <span>Confidence Score</span>
+                            <span id="confidence-percentage">94%</span>
+                        </div>
+                        <div class="meter-track">
+                            <div id="confidence-bar" class="meter-fill" style="width: 94%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-title">Model Used</span>
+                            <span class="metric-value">PassiveAggressive</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-title">Feature Extraction</span>
+                            <span class="metric-value">TF-IDF Vectorizer</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Prediction History -->
+        <section class="card glass-card history-section">
+            <div class="card-header">
+                <span class="header-icon">📋</span>
+                <h2>Recent Predictions</h2>
+            </div>
+            <div id="history-list" class="history-list">
+                <!-- Fallback if empty -->
+                <p id="no-history-msg" class="subtle-text">No recent predictions in this session.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Built with ❤️ using Streamlit, Scikit-Learn & PassiveAggressive Classifier</p>
+            <p class="disclaimer">For educational purposes only — always verify news from multiple reliable sources.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
